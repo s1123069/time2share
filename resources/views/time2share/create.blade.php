@@ -28,6 +28,11 @@
             </section>
 
             <section class="create-form__section">
+                <label for="borrow_days"> Hoeveel dagen wil je dit item maximaal uitlenen: </label>
+                <input class="create-form__input" name="borrow_days" id="borrow_days" type="number" />
+            </section>
+
+            <section class="create-form__section">
                 <label for="image"> Afbeelding </label>
                 <select class="create-form__input" name="image" id="image">
                     @foreach($product as $product)

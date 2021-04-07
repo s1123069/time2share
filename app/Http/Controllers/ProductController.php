@@ -41,7 +41,7 @@ class ProductController extends Controller
         $product->kind_of_product = $request->input('kind_of_product');
         $product->description = $request->input('description');
         $product->image = $request->input('image');
-        // $product->deadline = $request->input('deadline');
+        $product->borrow_days = $request->input('borrow_days');
         $product->owner = Auth::user()->id;
         
         $product->save();

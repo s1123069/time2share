@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string("kind_of_product")->references("kind_of_product")->on("kind_of_products");
             $table->string("description");
             $table->string("image");
-            // $table->date('deadline');
+            $table->integer('borrow_days');
             $table->string("owner")->references("id")->on("users");
         });
     }

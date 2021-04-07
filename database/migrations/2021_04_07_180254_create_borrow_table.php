@@ -17,7 +17,7 @@ class CreateBorrowTable extends Migration
             $table->id()->references("id")->on("products");
             $table->string('borrower')->references("name")->on("users");
             $table->string('owner')->references("owner")->on("products");
-            $table->string('deadline')->references("deadline")->on("products");
+            $table->date('deadline');
         });
     }
 
