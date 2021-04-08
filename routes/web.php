@@ -22,10 +22,6 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/', [ProductController::class, 'redirect']);
 Route::get('/home', [ProductController::class, 'home']);
 
-Route::get('/image', [ImageUploadController::class, 'index']);
-Route::post('/upload', [ImageUploadController::class, 'upload']);
-
-
 Route::middleware(['auth'])->group(function() {
     Route::get('/products/create', [ProductController::class, 'create']);
     Route::get('/products', [ProductController::class, 'index']);
