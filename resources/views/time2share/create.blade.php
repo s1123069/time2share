@@ -6,7 +6,7 @@
 
 @section('content')
     <article class="create-form a-popup">
-        <form class="create-form__form" action="/products/create/confirm" method="POST">
+        <form class="create-form__form" action="/products/create/confirm" method="POST" enctype="multipart/form-data">
             @csrf
             <section class="create-form__section">
                 <label for="name"> Naam </label>
@@ -33,12 +33,8 @@
             </section>
 
             <section class="create-form__section">
-                <label for="image"> Afbeelding </label>
-                <select class="create-form__input" name="image" id="image">
-                    @foreach($product as $product)
-                        <option value="{{$product->image}}">{{$product->image}}</option>
-                    @endforeach
-                </select>
+                <label for="image"> Afbeelding </label><br />
+                <input type="file" id="image" name="image" class="">
             </section>
 
             <section class="create-form__section">

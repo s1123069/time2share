@@ -18,7 +18,8 @@ class ProductsTableSeeder extends Seeder
             'name' => 'pen',
             'kind_of_product' => 'Kantoor',
             'description' => 'Een goede blauwe pen',
-            'image' => '/img/' . 'default.jpg',
+            'image_name' => "default.jpg",
+            'image_path' => "./img/default.jpg",
             'borrow_days' => 10,
             'owner' => 1,
         ]);

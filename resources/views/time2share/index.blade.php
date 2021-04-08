@@ -8,11 +8,16 @@
     <title>Time2share</title>
 </head>
 <body>
+
+<p>{{$product}}</p><br />
+
     <ul>
     @foreach($product as $product)
-        <li>{{$product}}</li>
+        <li><img src="{{$product->image_path}}" alt="{{$product->image_path}}"></li>
     @endforeach        
     </ul>
-        <p>je zit in de index: '/products'</p>
+
+
+    <p>je zit in de index: '/products'</p>
 </body>
 </html>
