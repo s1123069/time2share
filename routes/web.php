@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\ImageUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,9 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'redirect']);
 Route::get('/home', [ProductController::class, 'home']);
+
+Route::get('/image', [ImageUploadController::class, 'index']);
+Route::post('/upload', [ImageUploadController::class, 'upload']);
 
 
 Route::middleware(['auth'])->group(function() {

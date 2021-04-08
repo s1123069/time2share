@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             KindOfProductsTableSeeder::class,
             ProductsTableSeeder::class,
+            ImageTableSeeder::class,
         ]);
     }
 }
