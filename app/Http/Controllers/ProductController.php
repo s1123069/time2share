@@ -20,9 +20,12 @@ class ProductController extends Controller
     }
 
     public function index(){
+        $user = Auth::user()->id;
         return view('time2share.index', [
-            'product' => Product::all(),
+            // 'product' => Product::all(),
+            'product' => Product::all()->where('owner' , '!=' , $user),
         ]);
+        
     }
 
     public function show($id){

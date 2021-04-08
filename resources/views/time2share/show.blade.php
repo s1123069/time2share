@@ -8,7 +8,10 @@
     <img class="sushiCard__image" src="{{$product->image_path}}" alt="{{$product->name . ' ' . $product->kind_of_product}}"/>
     </figure>
 
+
+    <p>{{$product->name}}</p>
     <section class="sushiCard__text">
+        
         <p>{{$product->description}}</p>
     </section>
 
