@@ -15,11 +15,11 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => 'pen',
-            'kind_of_product' => 'Kantoor',
-            'description' => 'Een goede blauwe pen',
+            'name' => 'Productnaam',
+            'kind_of_product' => 'Overig',
+            'description' => 'Hier komt de beschrijving.',
             'image_name' => "default.jpg",
-            'image_path' => "./img/default.jpg",
+            'image_path' => "/img/default.jpg",
             'borrow_days' => 10,
             'owner' => 1,
         ]);

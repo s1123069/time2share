@@ -14,7 +14,7 @@ class KindOfProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $kind_of_products_array = ["Keuken", "Gereedschap", "Kantoor", "Elektronica", "Hobby", "Reizen", "Sport"];
+        $kind_of_products_array = ["Keuken", "Gereedschap", "Kantoor", "Elektronica", "Hobby", "Reizen", "Sport", "Overig"];
 
         foreach($kind_of_products_array as $kind_of_products){
             DB::table('kind_of_products')->insert([

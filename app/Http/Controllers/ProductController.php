@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use \App\Models\Product;
+use Exception;
 
 class ProductController extends Controller
 {
@@ -33,7 +34,14 @@ class ProductController extends Controller
     public function create() {
         return view('time2share.create', [
             'kind_of_product' => \App\Models\KindOfProduct::all(),
-            'product' => Product::all(),
+            // 'product' => Product::all(),
+        ]);
+    }
+
+    public function owned(){
+        $user = Auth::user()->id;
+        return view('time2share.owned', [
+            'product' => Product::all()->where('owner', $user),
         ]);
     }
 
@@ -44,14 +52,21 @@ class ProductController extends Controller
             $product->kind_of_product = $request->input('kind_of_product');
             $product->description = $request->input('description');
             $product->image_name = $request->file('image')->getClientOriginalName();
-            $product->image_path = $request->input('image', './img/' . $product->image_name);
+            $product->image_path = $request->input('image', '/img/' . $product->image_name);
 
             $path = $request->file('image')->move('./img', $product->image_name);
 
             $product->borrow_days = $request->input('borrow_days');
             $product->owner = Auth::user()->id;
         
-            $product->save();
+            
+            try{
+                $product->save();
+                return redirect('/products');
+            }
+            catch(Exception $e){
+                return redirect('/products/create');
+            }
             
             // return redirect('/products');
         }

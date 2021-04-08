@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::post('/products/create/confirm', [ProductController::class, 'store']);
+    Route::get('/owned', [ProductController::class, 'owned']);
 });
 
 Route::get('/dashboard', function () {
