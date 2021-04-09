@@ -24,7 +24,7 @@ class ProductController extends Controller
         $user = Auth::user()->id;
         return view('time2share.index', [
             // 'product' => Product::all(),
-            'product' => Product::all()->where('owner' , '!=' , $user),
+            'product' => Product::all()->where('owner' , '!=' , $user)->where('borrowed' , '==' , false),
         ]);
         
     }
@@ -77,13 +77,17 @@ class ProductController extends Controller
     }
 
 
-    public function loan($id, Borrow $borrow) {
+    public function loan($id, Borrow $borrow, Product $product) {
         
         $borrow->id = Product::find($id)->id;
         $borrow->borrower = Auth::user()->id;
         $borrow->owner = Product::find($id)->owner;
         $borrow->save();
 
+        $product = Product::find($id);
+        $product->borrowed = true;
+        $product->save();
+        // $borrowed->save();
         // return view('time2share.myloans', [
         //     'id' => Product::find($id)->id,
         //     'borrower' => Auth::user()->id,
