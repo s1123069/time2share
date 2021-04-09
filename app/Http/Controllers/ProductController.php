@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use \App\Models\Product;
-use Exception;
 use \App\Models\Borrow;
+use Exception;
+use DB;
+
 
 class ProductController extends Controller
 {
@@ -104,9 +106,13 @@ class ProductController extends Controller
     }
 
     public function myloans(){
+        $user = Auth::user()->id;
+
+        $producten = DB::table('products')->join('borrow', 'products.id', '=', 'borrow.id')->get();
+        $product = $producten->where('borrowed', '==', true)->where('borrower', '==', $user);
+        
         return view('time2share.myloans', [
-            'product' => Product::all(),
-            'borrow' => Borrow::all(),
+            'product' => $product,          
         ]);
     }
 }
