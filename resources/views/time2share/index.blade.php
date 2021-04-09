@@ -17,7 +17,7 @@
         </figure>
         <section class="gridCard__textSection u-flex-v-center">
             <p class="gridCard__text">{{$product->description}}</p>
-            <a class="" href="/products/{{$product->id}}"}>Bekijk dit project</a>
+            <a class="" href="/products/{{$product->id}}">Bekijk dit project</a>
         </section>
         
     </article>

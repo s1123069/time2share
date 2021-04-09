@@ -23,5 +23,15 @@ class ProductsTableSeeder extends Seeder
             'borrow_days' => 10,
             'owner' => 1,
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Jeroen',
+            'kind_of_product' => 'Overig',
+            'description' => 'van Jeroen',
+            'image_name' => "default.jpg",
+            'image_path' => "/img/default.jpg",
+            'borrow_days' => 10,
+            'owner' => 2,
+        ]);
     }
 }

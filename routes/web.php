@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::post('/products/create/confirm', [ProductController::class, 'store']);
     Route::get('/owned', [ProductController::class, 'owned']);
+    Route::get('/products/{id}/loan', [ProductController::class, 'loan']);
+    Route::get('/myloans', [ProductController::class, 'myloans']);
 });
 
 Route::get('/dashboard', function () {

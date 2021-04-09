@@ -11,13 +11,13 @@
 
     <p>{{$product->name}}</p>
     <section class="sushiCard__text">
-        
         <p>{{$product->description}}</p>
+        <p>{{$product->borrow_days}}</p>
     </section>
 
     <section class="sushiCard__btnSection">
-        <button class="sushiCard__button"> Order Now </button>
-        <a class="sushiCard__back_to_home" href="/products">Back to home</a>
+        <button class="sushiCard__button" onclick="window.location.assign('/products/{{$product->id}}/loan')"> Leen dit item </button>
+        <a class="sushiCard__back_to_home" href="/products">Terug naar alle producten</a>
     </section>
 </article>
 @section('content')

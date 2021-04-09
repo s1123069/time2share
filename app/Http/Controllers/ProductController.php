@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use \App\Models\Product;
 use Exception;
+use \App\Models\Borrow;
 
 class ProductController extends Controller
 {
@@ -61,8 +62,7 @@ class ProductController extends Controller
 
             $product->borrow_days = $request->input('borrow_days');
             $product->owner = Auth::user()->id;
-        
-            
+          
             try{
                 $product->save();
                 return redirect('/products');
@@ -70,10 +70,39 @@ class ProductController extends Controller
             catch(Exception $e){
                 return redirect('/products/create');
             }
-            
             // return redirect('/products');
         }
         
         return redirect('/products/create');
+    }
+
+
+    public function loan($id, Borrow $borrow) {
+        
+        $borrow->id = Product::find($id)->id;
+        $borrow->borrower = Auth::user()->id;
+        $borrow->owner = Product::find($id)->owner;
+        $borrow->save();
+
+        // return view('time2share.myloans', [
+        //     'id' => Product::find($id)->id,
+        //     'borrower' => Auth::user()->id,
+        //     'owner' => Product::find($id)->owner,
+        //     'borrow' => Borrow::all(),
+        // ]);
+
+        // <h1>{{$id}}</h1>
+        // <h1>{{$borrower}}</h1>
+        // <h1>{{$owner}}</h1>
+
+        return redirect('/myloans');
+        
+    }
+
+    public function myloans(){
+        return view('time2share.myloans', [
+            'product' => Product::all(),
+            'borrow' => Borrow::all(),
+        ]);
     }
 }

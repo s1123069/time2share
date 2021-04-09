@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string("image_path");
             $table->integer('borrow_days');
             $table->string("owner")->references("id")->on("users");
+            $table->boolean("borrowed")->default(false);
         });
     }
 
