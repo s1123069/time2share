@@ -17,6 +17,7 @@ class ProductController extends Controller
     }
 
     public function home(){
+        
         return view('time2share.home', [
             // 'product' => Product::all()
         ]);
@@ -32,9 +33,10 @@ class ProductController extends Controller
     }
 
     public function show($id){
-        return view('time2share.show', [
-            'product' => Product::find($id),
-        ]);
+
+            return view('time2share.show', [
+                'product' => Product::find($id),
+            ]);    
     }
 
     public function create() {
@@ -46,8 +48,13 @@ class ProductController extends Controller
 
     public function owned(){
         $user = Auth::user()->id;
+        $producten = DB::table('products')->join('borrow', 'products.id', '=', 'borrow.id')->get();
+        $owned_product = Product::all()->where('owner', $user);
+        $loaned_product = $producten->where('borrowed', '==', true)->where('borrower', '==', $user);
+
         return view('time2share.owned', [
-            'product' => Product::all()->where('owner', $user),
+            'owned_products' => $owned_product,
+            'loaned_products' => $loaned_product,
         ]);
     }
 
@@ -101,18 +108,8 @@ class ProductController extends Controller
         // <h1>{{$borrower}}</h1>
         // <h1>{{$owner}}</h1>
 
-        return redirect('/myloans');
+        return redirect('/myproducts');
         
     }
 
-    public function myloans(){
-        $user = Auth::user()->id;
-
-        $producten = DB::table('products')->join('borrow', 'products.id', '=', 'borrow.id')->get();
-        $product = $producten->where('borrowed', '==', true)->where('borrower', '==', $user);
-        
-        return view('time2share.myloans', [
-            'product' => $product,          
-        ]);
-    }
 }

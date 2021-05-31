@@ -166,32 +166,6 @@ body {
 
 }
 
-/* Style for Kind-of-Sushi */
-.gridCard::after {
-    content: "";
-    width: 10%;
-    height: 10%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
-}
-.gridCard[data-kind-of-sushi="Maki"]::after {
-    background: #fed049;
-}
-.gridCard[data-kind-of-sushi="Nigiri"]::after {
-    background: #f6f7d7;
-}
-.gridCard[data-kind-of-sushi="Sashimi"]::after {
-    background: #ff5722;
-}
-.gridCard[data-kind-of-sushi="Temaki"]::after {
-    background: #f73859;
-}
-.gridCard[data-kind-of-sushi="Uramaki"]::after {
-    background: #0c056d;
-}
-
 .create-form {
     width: 40%;
     min-height: 70vh;

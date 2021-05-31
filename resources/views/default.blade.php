@@ -9,6 +9,19 @@
     <title>@yield('title')</title>
 </head>
 <body>
+<a class="sushiCard__back_to_home" href="/">Homepagina</a>
+@if (Auth::user() != null)
+    <form method="POST" action="/logout">
+        @csrf
+        <button class="u-button u-button--primary">Uitloggen</button>
+    </form>
+    <button type="button" onclick=window.location="{{ url("myproducts") }}">dashboard</button>
+    <button type="button" onclick=window.location="{{ url("products") }}">alle producten</button>
+    @else
+    <button type="button" onclick=window.location="{{ url("products") }}">Login</button>
+@endif
+
+    
     @yield('content')
 </body>
 </html>
