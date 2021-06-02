@@ -4,9 +4,11 @@
     Maak een product aan!
 @endsection
 
-<h1>Mijn producten</h1>
 
 @section('content')
+
+<h1>Mijn producten</h1>
+
     <ul class="u-grid-12 u-grid-gap-2">
     @foreach($owned_products as $owned_products)
     <li class="a-popup u-list-style-none gridCard" data-kind-of-product="{{$owned_products->kind_of_product}}>
