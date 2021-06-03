@@ -10,10 +10,16 @@
     </figure>
 
 
-    <p>{{$product->name}}</p>
+    <section class="card__header">
+        <h1>{{$product->name}}</h1>
+    </section>
+    
     <section class="card__text">
         <p>{{$product->description}}</p>
-        <p>{{$product->borrow_days}}</p>
+    </section>
+
+    <section class="card__deadline">
+        <p>U kunt dit product lenen voor: {{$product->borrow_days}} dagen.</p>
     </section>
 
     <section class="card__btnSection">

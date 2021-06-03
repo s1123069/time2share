@@ -9,8 +9,9 @@
     @foreach($product as $product)
     <li class="a-popup u-list-style-none gridCard" data-kind-of-product="{{$product->kind_of_product}}">
     <article>
-        <header class="gridCard__header u-flex-v-center">
+        <header class="gridCard__header">
             <h2 class="gridCard__heading">{{$product->name}}</h2>
+            <h3 class="gridCard__category">{{$product->kind_of_product}}</h3>
         </header>
         <figure class="gridCard__figure">
             <img class="gridCard__image" src="{{$product->image_path}}" alt="{{$product->description}}">
@@ -24,4 +25,5 @@
 </li>
     @endforeach
 </ul>
+<script src="/js/main.js"></script>
 @endsection

@@ -7,7 +7,7 @@
 
 @section('content')
 
-<h1>Mijn producten</h1>
+<h1 class="dashboardHeader">Mijn producten</h1>
 
     <ul class="u-grid-12 u-grid-gap-2">
     @foreach($owned_products as $owned_products)
@@ -29,7 +29,7 @@
 </ul>
 
 
-<h1>mijn geleende producten</h1>
+<h1 class="dashboardHeader u-dashboardHeader-margin-top" >mijn geleende producten</h1>
 
 <ul class="u-grid-12 u-grid-gap-2">
     @foreach($loaned_products as $loaned_products)
