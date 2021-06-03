@@ -13,6 +13,26 @@ let checkbox_sport = document.getElementById("sport");
 let checkbox_overig = document.getElementById("overig");
 
 
+
+const searchBar = document.getElementById("js--searchBar");
+let productnames = document.getElementsByClassName("js--productnames");
+let gridCards = document.getElementsByClassName("gridCard");
+searchBar.onkeyup = (event) => {
+    let filter = event.target.value.toUpperCase();
+    for (let i = 0; i < productnames.length; i++) {
+        let innerHTML = productnames[i].innerHTML.toUpperCase();
+        if (innerHTML.indexOf(filter) !== -1) {
+            gridCards[i].style.display = "block";
+        } else {
+            gridCards[i].style.display = "none";
+        }
+        productnames[i].style.animationName = "none";
+    }
+
+    console.log(gridCards);
+}
+
+
 checkbox_keuken.checked = true;
 checkbox_gereedschap.checked = true;
 checkbox_kantoor.checked = true;
@@ -167,3 +187,7 @@ checkbox_overig.addEventListener('change', function(){
         }
     }
 });
+
+
+
+
