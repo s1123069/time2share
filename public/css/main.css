@@ -323,6 +323,36 @@ body {
 
 
 /* ======================= dahboard ======================= */
+.filter{
+    height: 3rem;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}
+
+.filter summary{
+    cursor: pointer;
+}
+
+.filter__grid{
+    display: grid;
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    color: white;
+    background-color: var(--tcolor);
+    grid-template-columns: repeat(8, 1fr);
+    padding: 5px;
+}
+
+
+.filter__grid__items{
+    margin: 0 auto;
+}
+
+
+
+
+/* ======================= dahboard ======================= */
 .dashboardHeader{
     margin: 1rem auto;
 }
