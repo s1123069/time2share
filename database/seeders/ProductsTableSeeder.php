@@ -83,5 +83,47 @@ class ProductsTableSeeder extends Seeder
             'borrow_days' => 10,
             'owner' => 1,
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Ninetendo Switch',
+            'kind_of_product' => 'Gereedschap',
+            'description' => 'descriptie',
+            'image_name' => "default.jpg",
+            'image_path' => "/img/default.jpg",
+            'borrow_days' => 10,
+            'owner' => 2,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Ninetendo Switch',
+            'kind_of_product' => 'Elektronica',
+            'description' => 'descriptie',
+            'image_name' => "default.jpg",
+            'image_path' => "/img/default.jpg",
+            'borrow_days' => 10,
+            'owner' => 2,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'Bal',
+            'kind_of_product' => 'Sport',
+            'description' => 'descriptie',
+            'image_name' => "default.jpg",
+            'image_path' => "/img/default.jpg",
+            'borrow_days' => 10,
+            'owner' => 2,
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'fiets',
+            'kind_of_product' => 'Hobby',
+            'description' => 'descriptie',
+            'image_name' => "default.jpg",
+            'image_path' => "/img/default.jpg",
+            'borrow_days' => 10,
+            'owner' => 2,
+        ]);
+
+
     }
 }
