@@ -473,6 +473,22 @@ body {
     cursor: pointer;
 }
 
+.u-pcolor{
+    background-color: var(--pcolor);
+}
+
+.u-scolor{
+    background-color: var(--scolor);
+}
+
+.u-tcolor{
+    background-color: var(--tcolor);
+}
+
+.u-font-black{
+    color: black;
+}
+
 .u-button-hover-blue:hover{
     background-color: var(--tcolor);
     color: white;

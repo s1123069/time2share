@@ -20,9 +20,12 @@ class CreateProductsTable extends Migration
             $table->string("description");
             $table->string("image_name");
             $table->string("image_path");
+            $table->string("image_path2")->nullable();
+            $table->string("image_path3")->nullable();
             $table->integer('borrow_days');
             $table->string("owner")->references("id")->on("users");
             $table->boolean("borrowed")->default(false);
+            $table->boolean("give_back")->default(false);
         });
     }
 

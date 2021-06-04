@@ -18,6 +18,7 @@ class CreateBorrowTable extends Migration
             $table->string('borrower')->references("name")->on("users");
             $table->string('owner')->references("owner")->on("products");
             $table->date('deadline')->default(now());
+            $table->boolean('at_borrower')->default(true);
         });
     }
 

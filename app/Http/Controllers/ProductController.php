@@ -55,6 +55,7 @@ class ProductController extends Controller
         return view('time2share.owned', [
             'owned_products' => $owned_product,
             'loaned_products' => $loaned_product,
+            'loaned_out_products' => Product::all()->where('owner', $user)->where('borrowed', '==', true),
         ]);
     }
 
@@ -96,20 +97,34 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->borrowed = true;
         $product->save();
-        // $borrowed->save();
-        // return view('time2share.myloans', [
-        //     'id' => Product::find($id)->id,
-        //     'borrower' => Auth::user()->id,
-        //     'owner' => Product::find($id)->owner,
-        //     'borrow' => Borrow::all(),
-        // ]);
-
-        // <h1>{{$id}}</h1>
-        // <h1>{{$borrower}}</h1>
-        // <h1>{{$owner}}</h1>
 
         return redirect('/myproducts');
         
+    }
+
+    public function returnProduct($id){
+        $id = Borrow::find($id)->id;
+        DB::update('UPDATE borrow SET at_borrower = false WHERE id = ?', [$id]);
+        DB::update('UPDATE products SET give_back = true WHERE id = ?', [$id]);
+
+        return redirect('/myproducts');
+    }
+
+    public function returnAccepted($id) {
+        DB::table('borrow')->where('id', '=', $id)->delete();
+        DB::update('UPDATE products SET borrowed = false WHERE id = ?', [$id]);
+        DB::update('UPDATE products SET give_back = false WHERE id = ?', [$id]);
+
+        $user = Auth::user()->id;
+        $producten = DB::table('products')->join('borrow', 'products.id', '=', 'borrow.id')->get();
+        $owned_product = Product::all()->where('owner', $user);
+        $loaned_product = $producten->where('borrowed', '==', true)->where('borrower', '==', $user);
+
+        return view('time2share.owned', [
+            'owned_products' => $owned_product,
+            'loaned_products' => $loaned_product,
+            'loaned_out_products' => Product::all()->where('owner', $user)->where('borrowed', '==', true),
+        ]);
     }
 
 }

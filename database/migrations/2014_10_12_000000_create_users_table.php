@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('Gebruiker');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('blocked')->default(false);
         });
     }
 

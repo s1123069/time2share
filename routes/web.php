@@ -22,13 +22,20 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/', [ProductController::class, 'redirect']);
 Route::get('/home', [ProductController::class, 'home']);
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', "disabled"])->group(function() {
     Route::get('/products/create', [ProductController::class, 'create']);
+
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/{id}', [ProductController::class, 'show']);
+
     Route::post('/products/create/confirm', [ProductController::class, 'store']);
+
     Route::get('/myproducts', [ProductController::class, 'owned']);
+
     Route::get('/products/{id}/loan', [ProductController::class, 'loan']);
+
+    Route::get('/myproducts/return/{id}', [ProductController::class, 'returnProduct']);
+    Route::get('/myproducts/accepted/{id}', [ProductController::class, 'returnAccepted']);
 });
 
 // Route::get('/dashboard', function () {
