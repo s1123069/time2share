@@ -3,7 +3,7 @@
 
         <x-slot name="logo">
             <a href="/">
-                <h1 class="text-5xl bg-yellow-500 p-4">Time2Share</h1>
+            <img src="/img/logo_1920.webp" srcset="/img/logo_640.webp 640w, /img/logo_1280.webp 1280w, /img/logo_1920.webp 1920w" alt="Logo Time2Share" width="150">
             </a>
         </x-slot>
         
