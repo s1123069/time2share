@@ -1,10 +1,11 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-card>
+
+<x-slot name="logo">
+    <a href="/">
+        <h1 class="text-5xl bg-yellow-500 p-4">Time2Share</h1>
+    </a>
+</x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />

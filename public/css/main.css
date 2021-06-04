@@ -496,6 +496,22 @@ body {
     }
 }
 
+/* 
+.inlogText{
+    font: var(--cfont);
+    font-size: 5rem;
+    background-color: var(--pcolor);
+    border-radius: 0.5rem;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    width: 100%;
+    padding: 2rem;
+} */
+
+
+
+
+
 /* Utility Classes */
 .u-button-grid-column-2{
     grid-column: 2;
