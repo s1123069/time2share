@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('title')
-    Maak een product aan!
+    Time2Share
 @endsection
 @section('content')
 

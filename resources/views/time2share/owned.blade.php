@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('title')
-    Maak een product aan!
+    Mijn producten
 @endsection
 
 

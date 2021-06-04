@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('title')
-    Profiel
+    Review
 @endsection
 @section('content')
 
