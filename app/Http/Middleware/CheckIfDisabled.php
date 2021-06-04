@@ -22,6 +22,6 @@ class CheckIfDisabled
             return redirect ('/');
         }
 
-        // return redirect ('/');
+        return $next($request);
     }
 }

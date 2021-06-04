@@ -22,7 +22,7 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/', [ProductController::class, 'redirect']);
 Route::get('/home', [ProductController::class, 'home']);
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', 'disabled'])->group(function() {
     Route::get('/products/create', [ProductController::class, 'create']);
 
     Route::get('/products', [ProductController::class, 'index']);
