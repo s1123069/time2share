@@ -7,7 +7,7 @@
 
 @section('content')
 
-<h1 class="dashboardHeader">Welkom {{$user_name}}</h1>
+<h1 class="dashboardHeader">Welkom {{Auth::user()->name}}</h1>
 <h1 class="dashboardHeader">Mijn producten</h1>
 
 @if (Auth::user()->role == "Admin")
