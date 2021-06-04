@@ -15,9 +15,9 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => 'Productnaam',
+            'name' => 'biebpas',
             'kind_of_product' => 'Overig',
-            'description' => 'Hier komt de beschrijving.',
+            'description' => 'Dit is mijn biebpas om boeken mee te lenen in de biebliotheek.',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
             'borrow_days' => 10,
@@ -25,9 +25,9 @@ class ProductsTableSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Jeroen',
+            'name' => 'Rugzak',
             'kind_of_product' => 'Overig',
-            'description' => 'van Jeroen',
+            'description' => 'Mijn oude rugzak waar ik mee naar school ging.',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
             'borrow_days' => 10,
@@ -75,9 +75,9 @@ class ProductsTableSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Drilboor',
+            'name' => 'Schroevendraaier',
             'kind_of_product' => 'Gereedschap',
-            'description' => 'Voor drillers met die shank',
+            'description' => 'Voor het klussen thuis',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
             'borrow_days' => 10,
@@ -87,17 +87,17 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Ninetendo Switch',
             'kind_of_product' => 'Elektronica',
-            'description' => 'descriptie',
+            'description' => 'Mijn console die ik voor één of andere reden uitleen.',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
-            'borrow_days' => 10,
+            'borrow_days' => 2,
             'owner' => 2,
         ]);
 
         DB::table('products')->insert([
             'name' => 'Bal',
             'kind_of_product' => 'Sport',
-            'description' => 'descriptie',
+            'description' => 'Ga naar het pleintje en dan kun je hiermee voetballen.',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
             'borrow_days' => 10,
@@ -107,7 +107,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'fiets',
             'kind_of_product' => 'Hobby',
-            'description' => 'descriptie',
+            'description' => 'Een fiets waarven het echterwiel een beetje scheef is.',
             'image_name' => "default.jpg",
             'image_path' => "/img/default.jpg",
             'borrow_days' => 10,

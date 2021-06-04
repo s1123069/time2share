@@ -22,7 +22,7 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/', [ProductController::class, 'redirect']);
 Route::get('/home', [ProductController::class, 'home']);
 
-Route::middleware(['auth', "disabled"])->group(function() {
+Route::middleware(['auth'])->group(function() {
     Route::get('/products/create', [ProductController::class, 'create']);
 
     Route::get('/products', [ProductController::class, 'index']);
@@ -40,6 +40,13 @@ Route::middleware(['auth', "disabled"])->group(function() {
     Route::get('/users/{id}', [ProductController::class, 'profile']);
     Route::get('/users/{id}/review', [ProductController::class, 'review']);
     Route::post('/users/{id}/reviewed', [ProductController::class, 'reviewed']);
+});
+
+Route::middleware(['auth', 'admin'])->group(function() {
+    Route::get('/admin/allproducts', [ProductController::class, 'allItems']);
+    Route::get('/admin/allproducts/delete/{id}', [ProductController::class, 'deleteItem']);
+    Route::get('/admin/allusers', [ProductController::class, 'allUsers']);
+    Route::get('/admin/allusers/disable/{id}', [ProductController::class, 'deleteUser']);
 });
 
 // Route::get('/dashboard', function () {

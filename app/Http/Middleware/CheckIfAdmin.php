@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class CheckIfDisabled
+class CheckIfAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,10 @@ class CheckIfDisabled
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->blocked == 1) {
-            auth()->logout();
-            return redirect ('/');
+        if(Auth::user()->role === "Admin") {
+            return $next($request);
         }
 
-        // return redirect ('/');
+        return redirect ('/');
     }
 }

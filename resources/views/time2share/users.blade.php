@@ -35,7 +35,7 @@
     <article class="review">
         <h2 class="review__header">{{$review->review_by}}</h2>
         <p class="review__description">{{$review->description}}</p>
-        <h3 class="review__score">{{$review->score}}</h3>
+        <h3 class="review__score">score: {{$review->score}}</h3>
     </article>
 </li>
 @endforeach

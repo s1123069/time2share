@@ -55,6 +55,7 @@ class ProductController extends Controller
         $loaned_product = $producten->where('borrowed', '==', true)->where('borrower', '==', $user);
 
         return view('time2share.owned', [
+            "user_name" => Auth::user()->name,
             'owned_products' => $owned_product,
             'loaned_products' => $loaned_product,
             'loaned_out_products' => Product::all()->where('owner', $user)->where('borrowed', '==', true),
@@ -153,10 +154,35 @@ class ProductController extends Controller
         
         try {
             $review->save();
-            return redirect('/myproducts');
+            return redirect('/products');
         } catch(Exception $e) {
-            return redirect('/myproducts');
+            return redirect('/products');
         }
+    }
+
+
+    public function allItems() {
+        return view('time2share.adminAllProducts', [
+            'product' => Product::all(),
+            'user' => Auth::user()->id
+        ]);
+    }
+
+    public function deleteItem($id) {
+        DB::update('DELETE FROM products WHERE id = ?', [$id]);
+        return redirect('/admin/allproducts');
+    }
+
+    public function allUsers() {
+        $user = Auth::user()->name;
+        return view('time2share.adminAllUsers', [
+            'user' => User::all()->where('blocked', '=', false)
+        ]);
+    }
+
+    public function deleteUser($id) {
+        DB::update('UPDATE users SET blocked = true WHERE id = ?', [$id]);
+        return redirect('/admin/allusers');
     }
 
 }

@@ -7,8 +7,17 @@
 
 @section('content')
 
+<h1 class="dashboardHeader">Welkom {{$user_name}}</h1>
 <h1 class="dashboardHeader">Mijn producten</h1>
-<a class="cardPageLink u-margin-top-4rem" href="/products/create">Voeg product toe</a>
+
+@if (Auth::user()->role == "Admin")
+    <a class="cardPageLink u-scolor" href="/admin/allproducts">Verwijder Producten</a>
+    <a class="cardPageLink u-scolor" href="/admin/allusers">Verwijder Gebruikers</a>
+@endif
+
+
+
+<a class="cardPageLink" href="/products/create">Voeg product toe</a>
     <ul class="u-grid-12 u-grid-gap-2">
     @foreach($owned_products as $owned_products)
 
@@ -23,8 +32,7 @@
                 </figure>
                 <section class="gridCard__textSection u-flex-v-center">
                     <p class="gridCard__text u-font-black">{{$owned_products->description}}</p>
-                </section>
-                
+                </section>                
             </article>
         </li>
     @endforeach
