@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use \App\Models\Product;
 use \App\Models\Borrow;
+use \App\Models\User;
+use \App\Models\Review;
 use Exception;
 use DB;
 
@@ -125,6 +127,36 @@ class ProductController extends Controller
             'loaned_products' => $loaned_product,
             'loaned_out_products' => Product::all()->where('owner', $user)->where('borrowed', '==', true),
         ]);
+    }
+
+
+    public function profile($id) {
+        return view('time2share.users', [
+            'product' => Product::all()->where('owner', '=', $id)->where('borrowed', '==', false),
+            'user' => User::where('id', '=', $id)->get()->first(),
+            'review' => Review::all()->where('user_id', '=', $id)
+        ]);
+    }
+
+    public function review($id) {
+        return view('time2share.reviewForm', [
+            'user' => User::where('id', '=', $id)->get()->first()
+        ]);
+    }
+
+    public function reviewed(Request $request, Review $review, $id){
+        $review->user_id = $id;
+        $review->review_by = Auth::user()->name;
+        $review->name = $request->input('name');
+        $review->description = $request->input('description');
+        $review->score = $request->input('score');
+        
+        try {
+            $review->save();
+            return redirect('/myproducts');
+        } catch(Exception $e) {
+            return redirect('/myproducts');
+        }
     }
 
 }

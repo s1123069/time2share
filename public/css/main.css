@@ -76,6 +76,17 @@ body {
     font-family: var(--cfont);
 }
 
+@media(max-width: 500px) {
+    .header__button{
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 400px) {
+    .header__button{
+        font-size: 1.8rem;
+    }
+}
 
 
 /* ======================= homepage ======================= */
@@ -233,6 +244,12 @@ body {
     box-shadow: 0 0 5rem rgba(7, 104, 159, 0.9);
 }
 
+.cardPageLink{
+    width: 100%;
+    margin: 0 auto 2rem;
+    display: block;
+    text-align: center;
+}
 
 
 
@@ -394,11 +411,36 @@ body {
 
 
 
-/* ======================= dahboard ======================= */
+/* ======================= dashboard ======================= */
 .dashboardHeader{
     margin: 1rem auto;
 }
 
+
+
+
+/* ======================= review ======================= */
+.review{
+    display: black;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0.2rem 0.2rem 0.5rem black;
+    height: 10rem;
+    min-height: 10rem;
+}
+
+.review__header{
+    height: 30%;
+}
+
+.review__description{
+    height: 50%;
+}
+
+.review__score{
+    height: 20%;
+}
 
 
 
@@ -408,7 +450,7 @@ body {
     margin: 0 auto;
     box-shadow: 0 0.5rem 2rem black;
     display: flex;
-    color: #eeeeee;
+    color: black;
 }
 
 .create-form__form {
@@ -487,6 +529,10 @@ body {
 
 .u-font-black{
     color: black;
+}
+
+.u-margin-top-4rem{
+    margin-top: 4rem;
 }
 
 .u-button-hover-blue:hover{

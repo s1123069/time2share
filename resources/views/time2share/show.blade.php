@@ -4,6 +4,9 @@
     Maak een product aan!
 @endsection
 @section('content')
+
+<a class="cardPageLink" href="/users/{{$product->owner}}">Profiel van deze gebruiker</a>
+
 <article class="card a-popup">
     <figure class="card__figure">
     <img class="card__image" src="{{$product->image_path}}" alt="{{$product->name . ' ' . $product->kind_of_product}}"/>
@@ -36,4 +39,5 @@
         <a class="card__back_to_home" href="/products">Terug naar alle producten</a>
     </section>
 </article>
+
 @endsection

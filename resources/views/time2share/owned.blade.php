@@ -8,7 +8,7 @@
 @section('content')
 
 <h1 class="dashboardHeader">Mijn producten</h1>
-
+<a class="cardPageLink u-margin-top-4rem" href="/products/create">Voeg product toe</a>
     <ul class="u-grid-12 u-grid-gap-2">
     @foreach($owned_products as $owned_products)
 
@@ -82,18 +82,5 @@
     @endforeach
 </ul>
 
-
-
-
-@if (Request::is('my-products'))
-<section class="loanedSection">
-    <h2 class="loanedSection__text">Uitgeleende producten</h2>
-</section>
-<ul class="u-grid-12 u-grid-gap-2">
-    @foreach($accept as $accept)
-        @include('products.components.loanedCard--index')
-    @endforeach
-</ul>
-@endif
 
 @endsection

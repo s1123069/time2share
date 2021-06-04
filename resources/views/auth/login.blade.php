@@ -58,6 +58,7 @@
             </div>
         </form>
 
+        <a class="flex justify-center mt-8 text-gray-600 underline" href="/register">registreer</a>
         <a class="flex justify-center mt-8 text-gray-600 underline" href="/">Naar Homepagina</a>
     </x-auth-card>
 </x-guest-layout>

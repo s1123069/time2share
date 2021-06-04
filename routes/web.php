@@ -36,6 +36,10 @@ Route::middleware(['auth', "disabled"])->group(function() {
 
     Route::get('/myproducts/return/{id}', [ProductController::class, 'returnProduct']);
     Route::get('/myproducts/accepted/{id}', [ProductController::class, 'returnAccepted']);
+
+    Route::get('/users/{id}', [ProductController::class, 'profile']);
+    Route::get('/users/{id}/review', [ProductController::class, 'review']);
+    Route::post('/users/{id}/reviewed', [ProductController::class, 'reviewed']);
 });
 
 // Route::get('/dashboard', function () {
